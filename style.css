@@ -1,4 +1,32 @@
-html {
-  height: 100%;
-  width: 100%;
+html, body {
+  margin: 0;
+  overflow: none;
+  padding: 0;
+  border: 0;
+  background-color: #363636FF;
+}
+/*** navbar ***/
+.topnav {
+  font-family: Arial;
+  font-size: 4vw;
+  margin: 0;
+  overflow: hidden;
+  background-color: #4D4D4DFF;
+}
+.topnav a {
+  float: left;
+  color: #363636FF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #363636FF;
+  color: #A60000FF;
+}
+
+.topnav a.active {
+  background-color: #A60000FF;
+  color: #4D4D4DFF;
 }
