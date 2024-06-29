@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>GAMESITE</title>
+	<meta charset="UTF-8">
+
+	<!-- firebase start ****************************************-->
+	<!-- Firebase App (core Firebase SDK) is always required & must be listed 1st -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+	<!-- Add Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+	<!-- firebase end ******************************************-->
+	<script src="../fb_setup.js"></script>
+	<script src="../fb_io.js"></script>
+	<script src="highScores.js"></script>
+	<link href="../style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!--***************************************************
+	BODY
+****************************************************-->
+
+<body onload="checkIfInDataBase()">
+	<div class="topnav">
+		<a href="../index.html">Home</a>
+		<a class="active">High Scores</a>
+		<a href="about.html">About</a>
+	</div>
+	<div style="padding-left:10%">
+		<p>Undead Unleashed</p>
+		<table id="UndeadUnleashedHighScoreTable" style="width:80%">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>UserName</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Existing rows will be replaced by high scores -->
+			</tbody>
+		</table>
+
+	</div>
+	<div style="padding-left:10%">
+		<p>Dino Clone</p>
+		<table style="width:80%">
+			<tr>
+				<th>#</th>
+				<th>UserName</th>
+				<th>Score</th>
+			</tr>
+			<tr>
+				<th>1</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>2</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>4</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>5</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>6</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>7</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>8</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>9</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+			<tr>
+				<th>10</th>
+				<th>JohnDoe</th>
+				<th>NaN</th>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
+<!--***************************************************
+	END OF INDEX.HTML
+****************************************************-->

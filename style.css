@@ -28,5 +28,19 @@ html, body {
 
 .topnav a.active {
   background-color: #A60000FF;
+  color: #363636FF;
+}
+table, th, td {
+  border: 2px solid #363636FF;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #4D4D4DFF;
+  color: #212121FF;
+  text-align: center;
+}
+p {
   color: #4D4D4DFF;
+  font-family: Arial;
+  font-size: 2vw;
 }

@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>GAMESITE</title>
 	<meta charset="UTF-8">
-	
+
 	<!-- firebase start ****************************************-->
 	<!-- Firebase App (core Firebase SDK) is always required & must be listed 1st -->
-	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>  
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
 	<!-- Add Firebase products that you want to use -->
-	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>  
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script> 
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
 	<!-- firebase end ******************************************-->
-	<script src="fb_setup.js"></script> 
-	<script src="fb_io.js"></script> 
-	<link href="style.css" rel="stylesheet" type="text/css" >
-	
+	<script src="../fb_setup.js"></script>
+	<script src="../fb_io.js"></script>
+	<link href="../style.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <!--***************************************************
 	BODY
 ****************************************************-->
+
 <body onload="checkIfInDataBase()">
 	<div class="topnav">
-		<a class="active">Home</a>
-		<a href="otherPages/highScores.html">High Scores</a>
-		<a href="otherPages/about.html">About</a>
+		<a href="../index.html">Home</a>
+		<a href="highScores.html">High Scores</a>
+		<a class="active">About</a>
 	</div>
 	<div style="padding-left:16px">
-		<button onClick="fb_login()">Login</button> 
+
 	</div>
 </body>
+
 </html>
 <!--***************************************************
 	END OF INDEX.HTML
