@@ -12,7 +12,7 @@ var username;
 var PFP;
 var score;
 //AUTH
-function fb_auth() {
+function fb_auth(_DOTHIS) {
 	console.log('logging in');
 	firebase.auth().onAuthStateChanged((user) => {
 		if (user) {
@@ -23,6 +23,7 @@ function fb_auth() {
 			email = user.email;
 			PFP = user.photoURL;
 			console.log(uid);
+			_DOTHIS(user);
 		} else {
 			console.log('FAIL to login')
 			// Using a popup.
@@ -41,54 +42,51 @@ function fb_auth() {
 	});
 }
 function checkIfInDataBase() {
-	fb_auth();
-	setTimeout(() => {
-		console.log(firebase.database().ref('users/' + uid).once('value'));
-		if (firebase.database().ref('users/' + uid).once('value', checkUserMade)) {
-			console.log("go to rego page");
-			//window.location = "/login/createAcc.html"
-		} else {
-			console.log("in database");
-			loggedin = true;
-		}
-	}, 6000);
+	fb_auth(isInDatabaseOrNot);
+}
+function isInDatabaseOrNot() {
+	console.log(firebase.database().ref('users/' + uid).once('value'));
+	firebase.database().ref('users/' + uid).once('value', checkUserMade);
 }
 function checkUserMade(_snapshot) {
-	setTimeout(() => {
+	console.log(_snapshot.val());
+	if (_snapshot.val() == null) {
 		console.log(_snapshot.val());
-		if (_snapshot.val() == null) {
-			console.log(_snapshot.val());
-			return (true);
-		} else {
-			console.log("false");
-			return (false);
-		}
-	}, 6000);
+		console.log("go to rego page");
+		window.location = "/login/createAcc.html"
+	} else {
+		console.log("in database");
+		loggedin = true;
+	}
 }
 //log user in when games loads
 function fb_saveScore(_score) {
 	console.log("Logging score");
-	firebase.database().ref('users/' + uid + '/score').once('value', checkIfNewHighScore);
+	firebase.database().ref('users/' + uid + '/ULscore').once('value', checkIfNewHighScore);
 }
 function checkIfNewHighScore(snapshot) {
+	console.log(snapshot);
 	if (snapshot.val() < score) {
-		firebase.database().ref('users/' + uid + '/score').set(score);
+		firebase.database().ref('users/' + uid + '/ULscore').set(score);
+		console.log(username);
+		firebase.database().ref('UndeadUnleashedHS/' + uid +'/' + username).set(score);
 	}
 }
 //add user to the database
 function createAcc() {
 	console.log('logging in');
-	fb_auth();
-	setTimeout(() => {
-		console.log('logging data in firebase');
-		firebase.database().ref('users/' + uid).set({
-			UID: uid,
-			email: email,
-			googleName: username,
-			PFP: PFP,
-			name: HTML_name.value,
-			IGN: HTML_ign.value,
-		});
+	fb_auth(writeUserToDatabase);
+}
+function writeUserToDatabase() {
+	console.log('logging data in firebase');
+	firebase.database().ref('users/' + uid).set({
+		UID: uid,
+		email: email,
+		googleName: username,
+		PFP: PFP,
+		name: HTML_name.value,
+		IGN: HTML_ign.value,
+	}).then(() => {
 		window.location = "../index.html"
-	}, 6000);
+	});
 }
