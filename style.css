@@ -24,6 +24,7 @@ html, body {
 .topnav a:hover {
   background-color: #363636FF;
   color: #A60000FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .topnav a.active {
@@ -43,4 +44,19 @@ p {
   color: #4D4D4DFF;
   font-family: Arial;
   font-size: 2vw;
+}
+button {
+  font-family: Arial;
+  border: none;
+  font-size: 3vw;
+  background-color: #4D4D4DFF;
+  color: #212121FF;
+  border-radius: 12px;
+  margin: 5vw;
+  padding: 5vw:
+}
+button:hover {
+  background-color: #363636FF;
+  color: #A60000FF;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

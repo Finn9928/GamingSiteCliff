@@ -1,10 +1,17 @@
-fb_readTopHighScores();
-function fb_readTopHighScores() {
-	firebase.database().ref('UndeadUnleashedHS').once('value', readHighScores);
+initializeHighScores();
+function initializeHighScores() {
+	fb_readTopHighScores('UndeadUnleashedHS', 'UndeadUnleashedHighScoreTable');
+	fb_readTopHighScores('DinoCloneHS', 'DinocloneHighScoreTable');
 }
-function readHighScores(snapshot) {
+
+function fb_readTopHighScores(path, tableId) {
+	firebase.database().ref(path).once('value', function(snapshot) {
+		readHighScores(snapshot, tableId);
+	});
+}
+function readHighScores(snapshot, tableId) {
 	var highScores = [];
-	console.log(highScores);
+	console.log(highScores, tableId);
 
 	// put all score into an array
 	snapshot.forEach(function(parentSnapshot) {
@@ -27,7 +34,7 @@ function readHighScores(snapshot) {
 	highScores = highScores.slice(0, 10);
 	console.log(highScores);
 
-	var highScoresTable = document.getElementById('UndeadUnleashedHighScoreTable').getElementsByTagName('tbody')[0];
+	var highScoresTable = document.getElementById(tableId).getElementsByTagName('tbody')[0];
 	// Clear existing content
 	highScoresTable.innerHTML = '';
 
